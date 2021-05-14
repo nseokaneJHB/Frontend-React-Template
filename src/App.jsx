@@ -1,10 +1,9 @@
 // Components
-import Home from './components/Home';
 
 function App() {
 	return (
 		<div>
-			<Home />
+			<h1>Hello React App</h1>
 		</div>
 	)
 }
