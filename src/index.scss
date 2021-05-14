@@ -12,6 +12,7 @@ $tablet: 750px;
 }
 
 * {
+	scroll-behavior: smooth;
 	box-sizing: border-box;
 	transition: 2s;
 	padding: 0;
