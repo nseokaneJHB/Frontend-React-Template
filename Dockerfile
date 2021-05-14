@@ -1,15 +1,19 @@
 FROM node:14.11.0-alpine3.10
 
-WORKDIR /usr/src/app/
+WORKDIR /app
 
 COPY . .
 
-RUN npm i -g @angular/cli@11.2.4
+COPY package.json ./
+COPY package-lock.json ./
 
-RUN npm i
-RUN ng --version
-RUN npm run build:prod
+RUN npm install
+RUN npm install -g serve
 
-EXPOSE $PORT
+# add app
+COPY . ./
 
-CMD [ "npm", "run" , "start:prod" ]
+# start app
+RUN npm run build
+
+CMD ["serve", "-s", "build", "-l", "4000"]
